@@ -1,24 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutoriais RTS</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutoriais RTS</title>
-</head>
+  <body>
+    <main>
+      <header>
+        <h1>Como baixar vídeos da internet</h1>
+        <a href="../index.html">Voltar pra lista de tutoriais</a>
+      </header>
 
-<body>
-  <main>
-    <header>
-      <h1>Como baixar vídeos da internet</h1>
-      <a href="../index.html">Voltar pra lista de tutoriais</a>
-    </header>
+      <section>
+        <h2>Ferramenta</h2>
+        <p>
+          Iremos utilizar do
+          <a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a>, uma ferramenta
+          open source que permite baixar vídeos de
+          <a
+            href="https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"
+            >todos esses sites</a
+          >.
+        </p>
+        <h2>Instalação</h2>
+        <h3>Método recomendado</h3>
+        <p>Basta colar o seguinte comando no powershell do windows:</p>
+        <code
+          >winget install -e --id Gyan.FFmpeg;winget install -e --id
+          yt-dlp.yt-dlp</code
+        >
+        <p>Ou se estiver usando linux (baseado em debian ou ubuntu):</p>
+        <code>sudo apt install yt-dlp</code>
+        <p>
+          Para baixar algum vídeo quando instalado dessa maneira, basta abrir um
+          CMD qualquer.
+        </p>
+        <p>
+          Por padrão o CMD abre na pasta do usuário, digitando apenas "cd dow" e
+          apertando tab você já estará na pasta Downloads.
+        </p>
+        <p>
+          Se quiser baixar para área de trabalho só digitar "cd desk" e dar tab.
+        </p>
 
-    <section>
-      <h2>Instalando</h2>
-      <p>Exemplo</p>
-    </section>
-  </main>
-</body>
+        <h3>Método avançado</h3>
+        <ol>
+          <li>
+            Baixe a última
+            <a href="https://github.com/yt-dlp/yt-dlp/releases"
+              >release do yt-dlp</a
+            >
+            (se estiver no windows <strong>yt-dlp.exe</strong>)
+          </li>
+          <li>Crie uma pasta e mova o executável para ela</li>
+        </ol>
+        <p>
+          Somente com isso já daria para utilizar o programa, mas de maneira bem
+          limitada já que falta o ffmpeg.
+        </p>
+        <p>Para instalar o ffmpeg (específico do yt-dlp):</p>
+        <ol>
+          <li>
+            Baixe a última
+            <a href="https://github.com/yt-dlp/FFmpeg-Builds/releases"
+              >release do ffmpeg</a
+            >
+            (se estiver no windows
+            <strong>ffmpeg-master-latest-win64-gpl.zip</strong>)
+          </li>
+          <li>Extraía para outra pasta que não seja a do yt-dlp</li>
+          <li>Dentro da pasta extraída vá em <strong>bin</strong></li>
+          <li>
+            Copie os arquivos <strong>ffmpeg.exe</strong> e
+            <strong>ffprobe.exe</strong> para a pasta do yt-dlp
+          </li>
+          <li>Os demais arquivos não são importantes e podem ser apagados</li>
+        </ol>
+        <p>
+          No final sua pasta com o <strong>yt-dlp</strong> deve ter somente:
+        </p>
+        <ul>
+          <li>ffmpeg.exe</li>
+          <li>ffprobe.exe</li>
+          <li>yt-dlp.exe</li>
+        </ul>
+        <p>
+          Para baixar algum vídeo quando instalado dessa maneira, será
+          necessário abrir um CMD na pasta raiz do programa.
+        </p>
+        <p>
+          A maneira mais fácil de fazer isso é abrir a pasta no windows
+          explorer, clicar no endereço dela e digitar "CMD" sem as aspas.
+        </p>
 
+        <h2>Utilização</h2>
+        <p>
+          Existe uma quantidade enorme de opções disponíveis, a própria
+          <a href="https://github.com/yt-dlp/yt-dlp#usage-and-options"
+            >página do github</a
+          >
+          tem um README enorme explicando.
+        </p>
+        <p>
+          Mas por simplicidade irei ensinar apenas dois comandos básicos que já
+          serve para muitos casos.
+        </p>
+        <p>
+          Apenas abra um CMD e digite os comandos. Vai aparecer algumas
+          informações, assim que ele terminar a mídia baixada vai estar
+          disponível na pasta que você abriu o CMD.
+        </p>
+        <h3>Baixar um vídeo</h3>
+        <code>yt-dlp {link do vídeo}</code>
+        <h3>Baixar um áudio</h3>
+        <code>yt-dlp -t "mp3" {link do vídeo}</code>
+        <h3>Exemplo</h3>
+        <code
+          >yt-dlp -t "mp3"
+          https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs</code
+        >
+        <h3>Aviso playlists</h3>
+        <p>
+          Cuidado quando for copiar o link de algum vídeo que está em uma
+          playlist porque pode ser que o programa tente baixar todos os vídeos.
+        </p>
+        <p>
+          Se estiver baixando do youtube basta apagar tudo que estiver depois de
+          <code>&list=</code>.
+        </p>
+
+        <h2>Informações bônus</h2>
+        <h3>Preset alias</h3>
+        <p>
+          O <strong>-t</strong> na verdade é um
+          <strong>preset alias</strong> que converte para um formato específico
+          através do ffmpeg.
+        </p>
+        <p>
+          Existem alguns outros, a
+          <a
+            href="https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#preset-aliases"
+            >lista completa está aqui</a
+          >.
+        </p>
+        <h3>Resolução específica</h3>
+        <code>yt-dlp -f "bv[height<=480]+ba" {link do vídeo}</code>
+        <p>
+          Nesse exemplo foi utilizado a resolução <strong>480p</strong>, mas
+          você pode mudar para qualquer outro valor.
+        </p>
+      </section>
+    </main>
+  </body>
 </html>
